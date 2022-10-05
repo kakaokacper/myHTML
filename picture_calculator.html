@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Picture calculator :)</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1> Picture calculator</h1>
+        <div class="div1">
+        <form>
+        <label for="1name">Picture's Height</label><br>
+        <input type="text" id="aa" name="1name"><br>
+        <label for="2name">Picutre's width</label><br>
+        <input type="text" id="bb" name="2name"><br>
+        <input type="radio" name="aa" id="cc" onclick="change()">Pixels<br><br>
+        <input type="radio" name="aa" id="dd" onclick="change1()">Inchs<br><br>
+        <input type="radio" name="aa" id="ee" onclick="change1()">Centimeters<br><br>
+        <input type="radio" name="bb" id="ff">8b<br><br>
+        <input type="radio" name="bb" id="gg">16b<br><br>
+        <input type="radio" name="bb" id="hh">24b<br><br>
+        <div id="zmiana2">
+        <label for="3name"> Picture's resolution</label><br>
+        <input type="text" name="3name" id="ab"><br><br>
+        </div>
+        <button type="button" onclick="picture()">Calculate</button>
+        <h2 id="h2">Result is: </h2>
+        </form>
+        </div>
+        <script>
+            function change1(){
+                var x = document.getElementById("zmiana2");
+                x.style.display = "block"
+            }
+
+            function change(){
+                var x = document.getElementById("zmiana2");
+                if(x.style.display === "none"){
+                    x.style.display = "block";
+                }
+                else{
+                    x.style.display = "none";
+                }
+            }
+            function picture(){
+            var a = document.getElementById("aa").value;
+            var b = document.getElementById("bb").value;
+            var c = document.getElementById("ab").value;
+            
+            //PIXELS
+            if(document.getElementById("cc").checked){
+                if(document.getElementById("ff").checked){
+                    document.getElementById("h2").innerHTML = "Result is: " + (a*b) + "B"+"</br>"+(a*b)/1024+"KB"+"</br>"+(a*b)/1024/1024+"MB";
+                }
+            }
+            
+
+            if(document.getElementById("cc").checked){
+                if(document.getElementById("gg").checked){
+                    document.getElementById("h2").innerHTML = "Result is: " + (a*b*2) + "B"+"</br>"+(a*b*2)/1024+"KB"+"</br>"+(a*b*2)/1024/1024+"MB";             
+                }
+            }
+            if(document.getElementById("cc").checked){
+                if(document.getElementById("hh").checked){
+                    document.getElementById("h2").innerHTML = "Result is: " + (a*b*3) + "B"+"</br>"+(a*b*3)/1024+"KB"+"</br>"+(a*b*3)/1024/1024+"MB";
+                }
+            }
+            //INCHS
+            if(document.getElementById("dd").checked){
+                if(document.getElementById("ff").checked){
+                    document.getElementById("h2").innerHTML = "Result is: "+(a*c)*(b*c)+"B"+"</br>"+(a*c)*(b*c)/1024+"KB"+"</br>"+(a*c)*(b*c)/1024/1024+"MB";
+                }
+            }
+            if(document.getElementById("dd").checked){
+                if(document.getElementById("gg").checked){
+                    document.getElementById("h2").innerHTML = "Result is: "+(a*c)*(b*c)*2+"B"+"</br>"+(a*c)*(b*c)*2/1024+"KB"+"</br>"+(a*c)*(b*c)*2/1024/1024+"MB";
+                }
+            }
+            if(document.getElementById("dd").checked){
+                if(document.getElementById("hh").checked){
+                    document.getElementById("h2").innerHTML = "Result is: "+(a*c)*(b*c)*3+"B"+"</br>"+(a*c)*(b*c)*3/1024+"KB"+"</br>"+(a*c)*(b*c)*3/1024/1024+"MB";
+                }
+            }
+            //CENTIMETERS
+            var d = ((a/2.54)*c*(b/2.54)*c);
+            if(document.getElementById("ee").checked){
+                if(document.getElementById("ff").checked){
+                    document.getElementById("h2").innerHTML = "Result is: "+d+"B"+"</br>"+d/1024+"KB"+"</br>"+d/1024/1024+"MB";
+                }
+            }
+            if(document.getElementById("ee").checked){
+                if(document.getElementById("gg").checked){
+                    document.getElementById("h2").innerHTML = "Result is: "+d*2+"B"+"</br>"+d*2/1024+"KB"+"</br>"+d*2/1024/1024+"MB";
+                }
+            }
+            if(document.getElementById("ee").checked){
+                if(document.getElementById("hh").checked){
+                    document.getElementById("h2").innerHTML = "Result is: "+d+"B"+"</br>"+d*3/1024+"KB"+"</br>"+d*3/1024/1024+"MB";
+                }
+            }
+            return false;
+
+        }
+        </script>
+    </body>
+</html>
